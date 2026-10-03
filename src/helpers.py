@@ -1,5 +1,5 @@
 from matplotlib import ticker
-
+import statsmodels.api as sm
 
 def describe_missing(df, mask, label, cols=None, check_fatal=True):
     if cols is None:
@@ -31,3 +31,10 @@ def fmt_axis(ax, axis="y", kind="int"):
         "pct": ticker.PercentFormatter(decimals=0),
     }[kind]
     (ax.yaxis if axis == "y" else ax.xaxis).set_major_formatter(fmt)
+
+def fit_ols(df, y, x):
+    data = df[[x, y]].dropna()
+    results = sm.OLS(data[y], sm.add_constant(data[x])).fit()
+    print(f"n = {len(data)}")
+    print(results.summary())
+    return results
