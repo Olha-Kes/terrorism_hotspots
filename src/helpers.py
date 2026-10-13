@@ -62,7 +62,7 @@ def set_theme(normal=True):
 
 def prepare_stacked_data(wide_df, accent_palette=None, other_labels=None):
     if accent_palette is None:
-        accent_palette = ["#f7cbaf", "#f29e6d", "#eb7a2e", "#e65100"]
+        accent_palette = ["#e65100", "#eb7a2e", "#f29e6d", "#f7cbaf"]
     if other_labels is None:
         other_labels = ["Other"]
     active_others = [col for col in other_labels if col in wide_df.columns]
