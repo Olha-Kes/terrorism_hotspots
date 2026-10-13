@@ -16,7 +16,7 @@ This project analyzes over **181,000 incident records** spanning 47 years to ide
 ## 📊 Visualizations & Key Highlights
 
 ![Global Distribution of Terrorism Hotspots (1970–2017).png](outputs/figures/Global%20Distribution%20of%20Terrorism%20Hotspots%20%281970%E2%80%932017%29.png)
-| ![Linear model typical vs high impact.png](outputs/figures/Linear%20model%20typical%20vs%20high%20impact.png)![Trends Chart](output/figures/casualty_trends.png) |
+|![Linear model typical vs high impact.png](outputs/figures/Linear%20model%20typical%20vs%20high%20impact.png)
 
 ---
 
