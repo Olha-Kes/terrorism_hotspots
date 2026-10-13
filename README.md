@@ -1,41 +1,87 @@
-Company
-Deloitte
+# 🌍 Global Terrorism Hotspots Analysis (1970–2017)
 
-Deloitte: Exploring Global Terrorism Database incident records from 1970–2017 to uncover patterns, insights, and key questions.
+An exploratory data analysis (EDA) and geospatial visualization project investigating global terrorism patterns, regional trends, casualty dynamics, and attack methodologies using the **Global Terrorism Database (GTD)**.
 
-Assignment
-Imagine you are a security or defense analyst. Analyze the data and draw conclusions on the distribution and nature of terrorist incidents recorded around the world. In your analysis, include maps that visualize the location of different incidents. Your analysis may also provide answers to the following questions:
+---
 
-How has the number of terrorist activities changed over the years? Are there certain regions where this trend is different from the global averages?
-Is the number of incidents and the number of casualties correlated? Can you spot any irregularities or outliers?
-What are the most common methods of attacks? Does it differ in various regions or in time?
-Plot the locations of attacks on a map to visualize their regional spread;
-You are also free to explore the data further and extract additional insights other than the questions above.
+## 📌 Project Overview & Scope
+This project analyzes over **181,000 incident records** spanning 47 years to identify spatial and temporal hotspots, measure casualty correlations, and track shifts in tactical methods across different regions.
 
-Data Description
-The provided compressed file globalterrorismdb_0718dist.tar.bz2 is an extract from the Global Terrorism Database (GTD) - an open-source database including information on terrorist attacks around the world from 1970 through 2017. The GTD includes systematic data on domestic as well as international terrorist incidents that have occurred during this time period and now includes more than 180,000 attacks. The database is maintained by researchers at the National Consortium for the Study of Terrorism and Responses to Terrorism (START), headquartered at the University of Maryland.
+* **Dataset:** Global Terrorism Database (GTD) — 181,691 rows × 135 columns (1970–2017)
+* **Core Focus:** Geospatial hotspot identifying, casualty impact distribution, time-series forecasting trends, and attack type classification.
+* **Tools & Environment:** Python 3.x, PyCharm, Pandas, GeoPandas, Seaborn, Matplotlib, Git (`venv`).
 
-Since the number of variables and instances is very large, for this project, feel free to select a subset of columns or a specific timeframe.
+---
 
-Explanation of selected columns:
+## 📊 Visualizations & Key Highlights
 
-success - Success of a terrorist strike
-suicide - 1 = "Yes" The incident was a suicide attack. 0 = "No" There is no indication that the incident was a suicide
-attacktype1 - The general method of attack
-attacktype1_txt - The general method of attack and broad class of tactics used.
-targtype1_txt - The general type of target/victim
-targsubtype1_txt - The more specific target category
-target1 - The specific person, building, installation that was targeted and/or victimized
-natlty1_txt - The nationality of the target that was attacked
-gname - The name of the group that carried out the attack
-gsubname - Additional details about group that carried out the attack like fractions
-nperps - The total number of terrorists participating in the incident
-weaptype1_txt - General type of weapon used in the incident
-weapsubtype1_txt - More specific value for most of the Weapon Types
-nkill - The number of total confirmed fatalities for the incident
-nkillus - The number of U.S. citizens who died as a result of the incident
-Hint The provided .tar.bz2 file is a compressed CSV file. Its contents can be loaded to a Pandas DataFrame using the read_csv() method from the Pandas library as follows:
+![Global Distribution of Terrorism Hotspots (1970–2017).png](outputs/figures/Global%20Distribution%20of%20Terrorism%20Hotspots%20%281970%E2%80%932017%29.png)
+| ![Linear model typical vs high impact.png](outputs/figures/Linear%20model%20typical%20vs%20high%20impact.png)![Trends Chart](output/figures/casualty_trends.png) |
 
-df = pd.read_csv("globalterrorismdb_0718dist.tar.bz2", compression="bz2")
-Practicalities
-Analyze the provided data and answer the questions to the best of your abilities. Include the relevant tables/graphs/visualization to explain and support your findings. Make sure that the solution reflects your entire thought process including the preparation of data - it is more important how the code is structured rather than just the final result or plot. You are expected to spend no more than 1-3 hours on this project.
+---
+
+## 🎯 Key Findings & Insights
+
+* **Geospatial Concentration:** Over 60% of recorded incidents between 2000 and 2017 are concentrated in three primary sub-regions: South Asia, the Middle East, and North Africa.
+* **Casualty vs. Incident Rate:** While total incidents peaked around 2014, the average severity (casualties per attack) varied significantly based on target type and weapon selection.
+* **Shift in Tactics:** Bombing/Explosion remains the predominant attack type globally (>50%), but armed assaults show higher casualty rates per incident in private civilian targets.
+* **Data Completeness:** Handled significant missing values across historical records (pre-1998 reporting vs. modern post-2000 digital reporting standards).
+
+---
+
+## 📂 Repository Structure
+
+```text
+terrorism_hotspots/
+├── data/                  # Raw and cleaned GTD datasets (git-ignored)
+│   └── raw/
+├── docs/                  # Project documentation & exported visual plots
+│   └── images/
+├── notebooks/             # Jupyter Notebooks for EDA workflow
+│   ├── [eda_terrorism_hotspots.ipynb](notebooks/eda_terrorism_hotspots.ipynb)
+├── src/                   # Helper functions, custom plotting themes, data loaders
+│   ├── [helpers.py](src/helpers.py)
+├── .gitignore             # Git ignore file for environment & heavy data
+├── README.md              # Project documentation
+└── requirements.txt       # Project dependencies
+⚙️ Quick Start & Installation
+Prerequisites
+Make sure you have Python 3.9+ installed on your system.
+
+1. Clone the repository
+Bash
+git clone [https://github.com/Olha-Kes/terrorism_hotspots.git](https://github.com/Olha-Kes/terrorism_hotspots.git)
+cd terrorism_hotspots
+2. Set up Virtual Environment
+Bash
+# On macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+# On Windows (PowerShell)
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+3. Install Dependencies
+Bash
+pip install --upgrade pip
+pip install -r requirements.txt
+4. Download Data & Run Notebooks
+Download the Global Terrorism Database (GTD) from START Consortium.
+
+Place globalterrorismdb_0718dist.csv inside the data/raw/ directory.
+
+Launch Jupyter Notebook / JupyterLab:
+
+Bash
+jupyter notebook
+🛠️ Code Features & Engineering Highlights
+High-Resolution Visualizations: Custom Seaborn dark/light themes configured with high DPI (dpi=300) and custom formatting (matplotlib.ticker).
+
+Geospatial Processing: Spatial coordinate conversion via GeoPandas and Shapely geometry generation.
+
+Efficient Memory Usage: Optimizing data types (category encoding, datetime parsing) for high-dimensional Pandas DataFrames.
+
+📄 License & Attribution
+Data sourced from the Global Terrorism Database (GTD) managed by the National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland.
+
+Created by Olha Kes
