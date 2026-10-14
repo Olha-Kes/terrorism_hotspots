@@ -1,4 +1,3 @@
-gpd
 plotly
 shapely
 geopandas
