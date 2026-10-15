@@ -2,7 +2,7 @@
 
 Exploratory analysis of the Global Terrorism Database: how the volume, geography, severity and methods of recorded terrorist attacks changed over time.
 
-The project is based on a data project from [StrataScratch](https://platform.stratascratch.com/data-projects/terrorism-hotspots) (<назва завдання>). The questions come from that task; the analysis, code and conclusions are my own.
+The project is based on a data project from [StrataScratch](https://platform.stratascratch.com/data-projects/terrorism-hotspots). The questions come from that task; the analysis, code and conclusions are my own.
 
 ## Key findings
 - **Regional shift in 2004.** Middle East & North Africa and South Asia together held 32.5–53.3% of incidents in 1995–2003 and 66–77% from 2004 to 2017. The surge after 2011 increased volume within an already concentrated geography.
